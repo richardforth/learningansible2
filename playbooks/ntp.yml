@@ -1,0 +1,9 @@
+---
+- hosts: all
+  user: root
+  tasks:
+    - name: Ensure ntp is present
+      yum:
+        name: ntp
+        state: present
+      become: True
