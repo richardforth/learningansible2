@@ -1,0 +1,9 @@
+---
+- hosts: all
+  user: root
+  tasks:
+  - name: Ensure all packages are the latest version
+    apt:
+      name: "*"
+      state: latest
+    become: true
