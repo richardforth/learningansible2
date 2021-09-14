@@ -7,3 +7,15 @@
         name: ntp
         state: present
       become: True
+    - name: Ensure timezone is set to GMT
+      file:
+        src: /usr/share/zoneinfo/GMT
+        dest: /etc/localtime
+        state: link
+      become: True
+    - name: Ensure the NTP service is running and enabled
+      service:
+        name: ntpd
+        state: started
+        enabled: True
+      become: True
