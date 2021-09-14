@@ -1,0 +1,9 @@
+---
+- hosts: all
+  user: root
+  tasks:
+    - name: Ensure EPEL repository is enabled
+      yum:
+        name: epel-release
+        state: present
+      become: true
